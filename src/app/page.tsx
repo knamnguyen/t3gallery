@@ -1,5 +1,6 @@
-import Link from "next/link";
 import { db } from "~/server/db";
+
+export const dynamic = "force-dynamic";
 
 const mockUrls = [
   "https://pgufwtpsfcdjcqvmykqh.supabase.co/storage/v1/object/sign/images/1b752e69-f6f8-4b4e-b50a-fa36f1c074c6.jpeg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvMWI3NTJlNjktZjZmOC00YjRlLWI1MGEtZmEzNmYxYzA3NGM2LmpwZWciLCJpYXQiOjE3MTYyMDgyMTQsImV4cCI6MTc0Nzc0NDIxNH0.oMSeAGiASOAnPGXwTXaqJs6AiP4DAM6exVkLTMOmjKo&t=2024-05-20T12%3A30%3A14.237Z",
