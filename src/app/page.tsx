@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { db } from "~/server/db";
 
 const mockUrls = [
   "https://pgufwtpsfcdjcqvmykqh.supabase.co/storage/v1/object/sign/images/1b752e69-f6f8-4b4e-b50a-fa36f1c074c6.jpeg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvMWI3NTJlNjktZjZmOC00YjRlLWI1MGEtZmEzNmYxYzA3NGM2LmpwZWciLCJpYXQiOjE3MTYyMDgyMTQsImV4cCI6MTc0Nzc0NDIxNH0.oMSeAGiASOAnPGXwTXaqJs6AiP4DAM6exVkLTMOmjKo&t=2024-05-20T12%3A30%3A14.237Z",
@@ -12,12 +13,19 @@ const mockImages = mockUrls.map((url, index) => ({
   url,
 }));
 
-export default function HomePage() {
+export default async function HomePage() {
+  const posts = await db.query.posts.findMany();
+
+  console.log(posts);
+
   return (
     <main className="">
       <div className="flex flex-wrap gap-4">
-        {[...mockImages, ...mockImages, ...mockImages].map((image) => (
-          <div className="w-48" key={image.id}>
+        {posts.map((post) => (
+          <div key={post.id}>{post.name}</div>
+        ))}
+        {[...mockImages, ...mockImages, ...mockImages].map((image, index) => (
+          <div className="w-48" key={image.id + "-" + index}>
             <img src={image.url} />
           </div>
         ))}
