@@ -7,7 +7,7 @@
 - [x] Ignoring eslint, typescript build errors and adding turbopack --turbo
 - [x] Actually set up a database (vercel postgres)
 - [x] Attach database to UI
-- [ ] Add authentication (w Clerk)
+- [x] Add authentication (w Clerk)
 - [ ] Add image upload
 - [ ] Error management (w/ Sentry)
 - [ ] Routing/ image page (parallel route)
